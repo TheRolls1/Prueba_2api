@@ -3,8 +3,12 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, validator
 import httpx
 import stripe
+import os
+from dotenv import load_dotenv
 
-stripe.api_key = "sk_test_51RRjTyH5EWZhGwlWOI5bzYEmdPSdEQkz86w01pL9omFI0Tz74jgkZj9BBX92cErzsooa4hOBNwF5s4ZENlqaTOwk00wEztErIq"
+load_dotenv()
+
+stripe.api_key = os.getenv("STRIPE_API_KEY")
 
 app = FastAPI(title="Mi API - Artículos FERREMAS")
 
